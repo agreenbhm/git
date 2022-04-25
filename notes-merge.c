@@ -176,6 +176,7 @@ static struct notes_merge_pair *diff_tree_remote(struct notes_merge_options *o,
 		       oid_to_hex(&mp->remote));
 	}
 	diff_flush(&opt);
+	clear_pathspec(&opt.pathspec);
 
 	*num_changes = len;
 	return changes;
@@ -261,6 +262,7 @@ static void diff_tree_local(struct notes_merge_options *o,
 		       oid_to_hex(&mp->local));
 	}
 	diff_flush(&opt);
+	clear_pathspec(&opt.pathspec);
 }
 
 static void check_notes_merge_worktree(struct notes_merge_options *o)

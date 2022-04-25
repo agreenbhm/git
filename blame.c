@@ -1403,6 +1403,7 @@ static struct blame_origin *find_origin(struct repository *r,
 		}
 	}
 	diff_flush(&diff_opts);
+	clear_pathspec(&diff_opts.pathspec);
 	return porigin;
 }
 
@@ -1446,6 +1447,7 @@ static struct blame_origin *find_rename(struct repository *r,
 		}
 	}
 	diff_flush(&diff_opts);
+	clear_pathspec(&diff_opts.pathspec);
 	return porigin;
 }
 
@@ -2326,6 +2328,7 @@ static void find_copy_in_parent(struct blame_scoreboard *sb,
 	} while (unblamed);
 	target->suspects = reverse_blame(leftover, NULL);
 	diff_flush(&diff_opts);
+	clear_pathspec(&diff_opts.pathspec);
 }
 
 /*
