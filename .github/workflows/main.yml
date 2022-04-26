@@ -5,7 +5,7 @@ on: [push, pull_request]
 env:
   DEVELOPER: 1
 
-jobs:
+jobs: 
   ci-config:
     name: config
     runs-on: ubuntu-latest
